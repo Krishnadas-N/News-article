@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="search-box">
+    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="loadArticles()" class="search-input" placeholder="Search Articles..">
+
+    <button class="search-button" (click)="loadArticles()">
+     <span>Search</span>
+    </button>
+ </div>
+<ng-container *ngIf="articles.length>0;else notFound">
+  <article *ngFor="let article of articles">
+    <div class="article-image-container">
+      <img [src]= 'article.urlToImage? article.urlToImage: imageUrl' alt="This is Article Image">
+    </div>
+    <div class="content-container">
+      <h3 class="article-title">{{article.title}}</h3>
+      <p class="article-content">{{article.content | slice:100}}</p>
+      <p class="article-details">
+       <span>AuthorName: {{article.author|titlecase}}</span>
+       <span>Source: {{article.source.name|titlecase}}</span>
+      </p>
+      <p class="read-more-btn">{{article.publishedAt | date:'short'}}</p>
+    </div>
+  </article>
+</ng-container>
+<ng-template #notFound>
+<div class="not-found"><p>No Data's Found</p></div>
+</ng-template>
+
+    </div>

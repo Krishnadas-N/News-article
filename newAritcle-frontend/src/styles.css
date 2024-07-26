@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #071952;
+  margin: 0;
+  padding: 0;
+  background-color: #EBF4F6;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
